@@ -1,0 +1,51 @@
+{
+  "name": "beyond",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon dist/server/main.js",
+    "watch": "concurrently \"npm run cpx -- watch\" \"npm run compile\"",
+    "compile": "tsc -w -p .",
+    "cpx": "cpx \"src/**/*.{css,json,png,svg,html}\" dist",
+    "client": "webpack-dev-server --config ./webpack/dev.config.js",
+    "build:dev": "webpack --config ./webpack/dev.config.js",
+    "build:prod": "webpack --config ./webpack/prod.config.js",
+    "publish": "rm -rf dist && npm run cpx && tsc"
+  },
+  "author": "Shin",
+  "license": "MIT",
+  "dependencies": {
+    "@nestjs/common": "^5.7.2",
+    "@nestjs/core": "^5.7.2",
+    "@types/node": "^11.9.4",
+    "@types/react": "^16.8.4",
+    "@types/react-dom": "^16.8.2",
+    "@types/webpack-env": "^1.13.7",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "cpx": "^1.5.0",
+    "express-session": "^1.15.6",
+    "html-webpack-plugin": "^3.2.0",
+    "mobx": "^5.9.0",
+    "mobx-react": "^5.4.3",
+    "mysql2": "^1.6.5",
+    "nodemon": "^1.18.10",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-redux": "^6.0.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.4.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.5",
+    "webpack-dev-middleware": "^3.6.0",
+    "webpack-dev-server": "^3.2.0",
+    "webpack-hot-middleware": "^2.24.3"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "webpack-cli": "^3.2.3"
+  }
+}
