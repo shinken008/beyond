@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { ApplicationModule } from './server.module';
 import * as session from 'express-session'
 import * as bodyParser from 'body-parser'
+import * as cookieParser from 'cookie-parser'
 
 async function bootstrap() {
   const app = await NestFactory.create(ApplicationModule);
@@ -18,9 +19,14 @@ async function bootstrap() {
     secret: 'beyond',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: {
+      secure: false,
+      maxAge: 0.5 * 60 * 60 * 1000, // 0.5h
+    },
   }))
 
-  await app.listen(8080);
+  app.use(cookieParser())
+
+  await app.listen(8080, () => console.log('Server start in 8080'));
 }
 bootstrap();
