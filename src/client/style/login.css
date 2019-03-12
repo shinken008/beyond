@@ -1,0 +1,12 @@
+body {
+  min-height: 780px;
+  background-image: url("../static/stock-photo-297138877.jpg");
+  background-size: cover;
+}
+section {
+    max-width: 300px;
+    min-height: 200px;
+    margin: 20% auto;
+    padding: 30px;
+    background-color: #00BCD4;
+}

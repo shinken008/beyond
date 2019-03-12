@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Res, Param, Body, UseInterceptors, Render, Req } from '@nestjs/common';
 import { join } from 'path'
 import { ResponseBodyInterceptor } from '../utils/interceptor'
-import { FOLDER_SERVER, FOLDER_DIST } from '../../common/constants';
+import { FOLDER_PUBLIC } from '../../common/constants';
 
 @Controller('auth')
 @UseInterceptors(ResponseBodyInterceptor)
@@ -17,6 +17,6 @@ export class AuthController {
 
   @Get('logout')
   logout(@Res() res) {
-    return res.sendFile(join(FOLDER_DIST, FOLDER_SERVER, 'auth/login.html'));
+    return res.sendFile(join(FOLDER_PUBLIC, 'login.html'));
   }
 }
