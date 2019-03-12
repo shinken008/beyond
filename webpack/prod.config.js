@@ -1,16 +1,16 @@
 const path = require('path');
-const webpack = require('webpack');
+const publicPath = path.resolve(__dirname, '..', 'public')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'production',
-  entry: [
-    './src/client/index.tsx',
-  ],
+  entry: {
+    'main': path.resolve(__dirname, '..', 'src/client/index.tsx'),
+    'login': path.resolve(__dirname, '..', 'src/client/login.ts')
+  },
   output: {
-    path: path.resolve(__dirname, '../public'),
-    filename: 'assets/main.js',
-    publicPath: '/'
+    filename: 'assets/[name].[chunkhash].js',
+    path: publicPath,
   },
   module: {
     rules: [
@@ -29,21 +29,10 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 8192
+              limit: 8192,
+              name: 'assets/[name]-[hash:8].[ext]'
             }
           },
-          {
-            loader: 'image-webpack-loader',
-            query: {
-              progressive: true,
-              optimizationLevel: 7,
-              interlaced: false,
-              pngquant: {
-                quality: '65-90',
-                speed: 4
-              }
-            }
-          }
         ]
       }
     ]
@@ -52,15 +41,15 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js']
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: 'src/client/index.html',
-      filename: `index.html`
+      template: path.resolve(__dirname, '..', 'src/client/index.html'),
+      filename: `index.html`,
+      chunks: ['main'],
     }),
     new HtmlWebpackPlugin({
-      template: 'src/client/login.html',
+      template: path.resolve(__dirname, '..', 'src/client/login.html'),
       filename: `login.html`,
-      chunks: ['src/client/login.ts']
+      chunks: ['login'],
     })
   ]
 };
