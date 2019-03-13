@@ -3,7 +3,7 @@ import { join } from 'path'
 import { ResponseBodyInterceptor } from '../utils/interceptor'
 import { FOLDER_PUBLIC } from '../../common/constants';
 
-@Controller('auth')
+@Controller()
 @UseInterceptors(ResponseBodyInterceptor)
 export class AuthController {
 
