@@ -1,12 +1,18 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
-import { ApiModule } from './api/api.module';
+import { APIModule } from './api/api.module';
 import { AuthModule } from './auth/auth.module';
 import { StaticModule } from './static/static.module';
 import { AuthMiddleware } from './middlewares/auth.middleware'
 import { LoggerMiddleware } from './middlewares/logger.middleware';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [AuthModule, ApiModule, StaticModule],
+  imports: [
+    AuthModule,
+    APIModule,
+    StaticModule,
+    TypeOrmModule.forRoot(),
+  ],
 })
 export class ApplicationModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
