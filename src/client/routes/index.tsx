@@ -5,7 +5,7 @@ import Home from './home'
 
 const Routes = () => <>
   <Route exact path="/" component={Home} />
-  <Route exact path="/todo" component={todoList} />
+  <Route path="/todo" component={todoList} />
 </>
 
 export default Routes

@@ -75,6 +75,7 @@ pre {
 
 a {
   background-color: transparent;
+  text-decoration-line: none;
 }
 
 /**
@@ -347,3 +348,7 @@ template {
 [hidden] {
   display: none;
 }
+
+
+/** beyond icon css */
+

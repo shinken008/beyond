@@ -1,6 +1,6 @@
-.home {
+body {
   min-height: 800px;
-  background-image: url('../static/stock-photo-297138877.jpg');
+  background-image: url('../static/stock-photo-288388299.jpg');
   background-size: cover;
   background-color: cornflowerblue;
 }
