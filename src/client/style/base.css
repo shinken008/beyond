@@ -349,6 +349,11 @@ template {
   display: none;
 }
 
+ul, li, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
 /** beyond icon css */
 

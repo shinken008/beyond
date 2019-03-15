@@ -10,7 +10,7 @@ import './style/style.css'
 const App = () => (
   <>
     <Header />
-    <section className="routes">
+    <section className="content">
       <Router>
         <Routes />
       </Router>

@@ -23,7 +23,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)$/i,
+        test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svgz)$/i,
         use: [
           {
             loader: 'url-loader',
@@ -33,6 +33,10 @@ module.exports = {
             }
           },
         ]
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        use: ['@svgr/webpack', 'url-loader', 'ts-loader']
       }
     ]
   },

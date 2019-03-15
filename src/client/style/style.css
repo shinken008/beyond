@@ -4,3 +4,10 @@ body {
   background-size: cover;
   background-color: cornflowerblue;
 }
+
+.content {
+  min-height: 850px;
+}
+.footer {
+  line-height: 1.5;
+}

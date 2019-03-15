@@ -2,7 +2,8 @@ import * as React from 'react';
 import { createHashHistory } from 'history';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import Icon from '@material-ui/core/Icon';
+import SvgIcon from '@material-ui/core/SvgIcon';
+import { ReactComponent as ssvg } from '../../static/icon/bell.svg';
 const history = createHashHistory();
 
 function SimpleBottomNavigation() {
@@ -20,11 +21,11 @@ function SimpleBottomNavigation() {
       }}
       showLabels
     >
-      <BottomNavigationAction value="" label="首页" icon={<Icon />} />
-      <BottomNavigationAction value="Recent" label="近期" icon={<Icon />} />
-      <BottomNavigationAction value="Favorite" label="兴趣" icon={<Icon />} />
-      <BottomNavigationAction value="Nearby" label="附近" icon={<Icon />} />
-      <BottomNavigationAction value="Todo" label="Todo" icon={<Icon />} />
+      <BottomNavigationAction value="" label="首页" icon={<SvgIcon width="1em" height="1em" component={ssvg} />} />
+      <BottomNavigationAction value="Recent" label="近期" icon={<SvgIcon width="1em" height="1em" component={ssvg} />} />
+      <BottomNavigationAction value="Favorite" label="兴趣" icon={<SvgIcon width="1em" height="1em" component={ssvg} />} />
+      <BottomNavigationAction value="Nearby" label="附近" icon={<SvgIcon width="1em" height="1em" component={ssvg} />} />
+      <BottomNavigationAction value="Todo" label="Todo" icon={<SvgIcon width="1em" height="1em" component={ssvg} />} />
     </BottomNavigation>
   );
 }
