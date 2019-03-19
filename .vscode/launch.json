@@ -5,6 +5,17 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "launch via npm",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run-script",
+        "svgr"
+      ]
+    },
+    {
       "name": "Attach to node",
       "type": "node",
       "request": "attach",

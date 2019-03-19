@@ -23,3 +23,8 @@ $ yarn build:prod
 ```sh
 $ yarn publish
 ```
+
+#### scripts description
+```sh
+$ yarn svgr // svg transfrom react compnent.
+```

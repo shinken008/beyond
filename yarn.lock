@@ -728,6 +728,23 @@
     "@svgr/babel-plugin-transform-react-native-svg" "^4.0.0"
     "@svgr/babel-plugin-transform-svg-component" "^4.1.0"
 
+"@svgr/cli@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@svgr/cli/-/cli-4.1.0.tgz#2b70a6e76e9b245750dd95a63c9597fc352beccd"
+  integrity sha512-WE2Dieui4+yLUGlhB9nRy7Iu8bOmjmucW5blnUTy7oEqCdqe1/Zxle1k8nSkkKyJW84Kv75L7E/Rf7oMWBa2yw==
+  dependencies:
+    "@svgr/core" "^4.1.0"
+    "@svgr/plugin-jsx" "^4.1.0"
+    "@svgr/plugin-prettier" "^4.0.3"
+    "@svgr/plugin-svgo" "^4.0.3"
+    camelcase "^5.0.0"
+    chalk "^2.4.1"
+    commander "^2.19.0"
+    dashify "^2.0.0"
+    glob "^7.1.3"
+    output-file-sync "^2.0.1"
+    recursive-readdir "^2.2.2"
+
 "@svgr/core@^4.1.0":
   version "4.1.0"
   resolved "http://r.cnpmjs.org/@svgr/core/download/@svgr/core-4.1.0.tgz#4f8ad24fb4ab25c787c12a6bbb511c6430558f83"
@@ -752,6 +769,14 @@
     rehype-parse "^6.0.0"
     unified "^7.0.2"
     vfile "^3.0.1"
+
+"@svgr/plugin-prettier@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@svgr/plugin-prettier/-/plugin-prettier-4.0.3.tgz#dfae58687da37f3a5ffe6e0f2521a89fb026e366"
+  integrity sha512-/Ncb5r8MF58en0PuHODsZdFVPMNmALKs72tX41cry5aqjewG4za6d1OHKBjXw2bn55DGc8uBPECTZPUzH5RcBg==
+  dependencies:
+    merge-deep "^3.0.2"
+    prettier "^1.15.2"
 
 "@svgr/plugin-svgo@^4.0.3":
   version "4.0.3"
@@ -1868,6 +1893,11 @@ commander@2.17.x, commander@~2.17.1:
   version "2.17.1"
   resolved "http://registry.npm.taobao.org/commander/download/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
 
+commander@^2.19.0:
+  version "2.19.0"
+  resolved "http://registry.npm.taobao.org/commander/download/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
+  integrity sha1-9hmKqE5bg8RgVLlN3tv+1e6f8So=
+
 commander@~2.8.1:
   version "2.8.1"
   resolved "http://r.cnpmjs.org/commander/download/commander-2.8.1.tgz#06be367febfda0c330aa1e2a072d3dc9762425d4"
@@ -2253,6 +2283,11 @@ d@1:
   resolved "http://registry.npm.taobao.org/d/download/d-1.0.0.tgz#754bb5bfe55451da69a58b94d45f4c5b0462d58f"
   dependencies:
     es5-ext "^0.10.9"
+
+dashify@^2.0.0:
+  version "2.0.0"
+  resolved "http://registry.npm.taobao.org/dashify/download/dashify-2.0.0.tgz#fff270ca2868ca427fee571de35691d6e437a648"
+  integrity sha1-//JwyihoykJ/7lcd41aR1uQ3pkg=
 
 date-fns@^1.23.0:
   version "1.30.1"
@@ -4778,7 +4813,7 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/minimalistic-crypto-utils/download/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
 
-minimatch@^3.0.2, minimatch@^3.0.4:
+minimatch@3.0.4, minimatch@^3.0.2, minimatch@^3.0.4:
   version "3.0.4"
   resolved "http://registry.npm.taobao.org/minimatch/download/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   dependencies:
@@ -5317,6 +5352,15 @@ osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
+output-file-sync@^2.0.1:
+  version "2.0.1"
+  resolved "http://registry.npm.taobao.org/output-file-sync/download/output-file-sync-2.0.1.tgz#f53118282f5f553c2799541792b723a4c71430c0"
+  integrity sha1-9TEYKC9fVTwnmVQXkrcjpMcUMMA=
+  dependencies:
+    graceful-fs "^4.1.11"
+    is-plain-obj "^1.1.0"
+    mkdirp "^0.5.1"
+
 p-cancelable@^0.3.0:
   version "0.3.0"
   resolved "http://r.cnpmjs.org/p-cancelable/download/p-cancelable-0.3.0.tgz#b9e123800bcebb7ac13a479be195b507b98d30fa"
@@ -5682,6 +5726,11 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.taobao.org/preserve/download/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
+prettier@^1.15.2:
+  version "1.16.4"
+  resolved "http://registry.npm.taobao.org/prettier/download/prettier-1.16.4.tgz#73e37e73e018ad2db9c76742e2647e21790c9717"
+  integrity sha1-c+N+c+AYrS25x2dC4mR+IXkMlxc=
+
 pretty-error@^2.0.2:
   version "2.1.1"
   resolved "http://registry.npm.taobao.org/pretty-error/download/pretty-error-2.1.1.tgz#5f4f87c8f91e5ae3f3ba87ab4cf5e03b1a17f1a3"
@@ -6021,6 +6070,13 @@ readdirp@^2.0.0, readdirp@^2.2.1:
     hoist-non-react-statics "^2.3.1"
     react-lifecycles-compat "^3.0.2"
     symbol-observable "^1.0.4"
+
+recursive-readdir@^2.2.2:
+  version "2.2.2"
+  resolved "http://registry.npm.taobao.org/recursive-readdir/download/recursive-readdir-2.2.2.tgz#9946fb3274e1628de6e36b2f6714953b4845094f"
+  integrity sha1-mUb7MnThYo3m42svZxSVO0hFCU8=
+  dependencies:
+    minimatch "3.0.4"
 
 redent@^1.0.0:
   version "1.0.0"
