@@ -1,8 +1,9 @@
 import { NestFactory } from '@nestjs/core';
 import { ApplicationModule } from './server.module';
-import * as session from 'express-session'
-import * as bodyParser from 'body-parser'
-import * as cookieParser from 'cookie-parser'
+import session from 'express-session'
+import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
+import middlewares from './middlewares'
 
 async function bootstrap() {
   const app = await NestFactory.create(ApplicationModule);
@@ -25,7 +26,16 @@ async function bootstrap() {
     },
   }))
 
+  app.use((req, res, next) => {
+    console.log('req.url', req.url)
+    console.log('req.path', req.path)
+    console.log('req.originalUrl', req.originalUrl)
+    next()
+  })
+
   app.use(cookieParser())
+
+  middlewares(app)
 
   await app.listen(8080, () => console.log('Server start in 8080'));
 }

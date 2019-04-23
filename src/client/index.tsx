@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import { hot } from 'react-hot-loader'
 
 import App from './app'
 const root = document.getElementById('root')
@@ -11,5 +12,6 @@ const render = (Component) => {
 render(App)
 
 if (module.hot) {
-  console.log(1111)
+  console.log('hot >>>>')
+  hot(module)(App)
 }

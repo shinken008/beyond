@@ -1,17 +1,10 @@
-import { Injectable, NestMiddleware, MiddlewareFunction } from '@nestjs/common';
-
 const ignorePath = [/^\/login$/, /^\/logout$/, /^\/assets\/*/, /^\/favicon.ico$/]
 
-@Injectable()
-export class AuthMiddleware implements NestMiddleware {
-  resolve(...args: any[]): MiddlewareFunction {
-    return (req, res, next) => {
-      if (!ignorePath.find(path => path.test(req.originalUrl)) && !req.session.username) {
-        res.redirect('/logout')
-        res.end()
-      } else {
-        next()
-      }
-    };
+export default function AuthMiddleware (req, res, next) {
+  if (!ignorePath.find(path => path.test(req.url)) && !req.session.username) {
+    res.redirect('/logout')
+    res.end()
+  } else {
+    next()
   }
 }

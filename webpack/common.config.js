@@ -1,6 +1,7 @@
 const path = require('path');
 const publicPath = path.resolve(__dirname, '..', 'public')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: {
@@ -8,7 +9,7 @@ module.exports = {
     'login': path.resolve(__dirname, '..', 'src/client/login.ts')
   },
   output: {
-    filename: 'assets/[name].[chunkhash].js',
+    filename: 'assets/js/[name].[chunkhash].js',
     path: publicPath,
   },
   module: {
@@ -20,7 +21,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // you can specify a publicPath here
+              // by default it uses publicPath in webpackOptions.output
+              publicPath: '../../',
+              hmr: process.env.NODE_ENV === 'development',
+            },
+          },
+          'css-loader',
+        ],
       },
       {
         test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2)$/i,
@@ -29,7 +41,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 8192,
-              name: 'assets/[name]-[hash:8].[ext]'
+              name: 'assets/images/[name]-[hash:8].[ext]'
             }
           },
         ]
@@ -53,6 +65,15 @@ module.exports = {
       template: path.resolve(__dirname, '..', 'src/client/login.html'),
       filename: `login.html`,
       chunks: ['login'],
-    })
+    }),
+    // Extract our CSS into a files.
+    new MiniCssExtractPlugin({
+      filename: 'assets/css/bundle.[contenthash:8].css',
+      chunkFilename: 'assets/css/[name].[contenthash:8].chunk.css',
+      // allChunks: true because we want all css to be included in the main
+      // css bundle when doing code splitting to avoid FOUC:
+      // https://github.com/facebook/create-react-app/issues/2415
+      allChunks: true,
+    }),
   ]
 };

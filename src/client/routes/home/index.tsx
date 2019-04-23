@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 const Home = () => (
   <div className="home">
     <Typography variant="h4" gutterBottom>
-      Material-UI
+      Material-UI 
         </Typography>
     <Typography variant="subtitle1" gutterBottom>
       example project

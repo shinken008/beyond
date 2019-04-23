@@ -1,24 +1,33 @@
-import * as React from 'react'
-import { computed, observable } from 'mobx'
-import { observer } from 'mobx-react';
+import React from 'react'
+import { observer, inject } from 'mobx-react';
+import { TodoStore } from '../store/todoStore'
 
-class TodoList {
-  @observable todos = [];
-  @computed get unfinishedTodoCount() {
-    return this.todos.filter(todo => !todo.finished).length;
-  }
-}
-
+@inject('todoStore')
 @observer
-class TodoListView extends React.Component<{ todoList: TodoList }> {
+class TodoList extends React.Component<{ todoStore: TodoStore }> {
+
+  create = () => {
+    this.props.todoStore.create({
+      title: Date.now(),
+    })
+  }
+
+  delete = (id) => () => {
+    this.props.todoStore.delete(id)
+  }
+  
   render() {
     return <div>
+      <button onClick={this.create}>新增</button>
       <ul>
-        {this.props.todoList.todos.map(todo =>
-          <TodoView todo={todo} key={todo.id} />
+        {this.props.todoStore.todos.map(todo =>
+          <div key={todo.id}>
+            <TodoView todo={todo} />
+            <button onClick={this.delete(todo.id)}>删除</button>
+          </div>
         )}
       </ul>
-      Tasks left: {this.props.todoList.unfinishedTodoCount}
+      Tasks left: {this.props.todoStore.unfinishedTodoCount}
     </div>
   }
 }
@@ -33,8 +42,4 @@ const TodoView = observer(({ todo }) =>
   </li>
 )
 
-const store = new TodoList();
-
-const Todo = () => (<TodoListView todoList={store} />)
-
-export default Todo
+export default TodoList
