@@ -1,5 +1,6 @@
 const path = require('path');
 const publicPath = path.resolve(__dirname, '..', 'public')
+const FOLDER_CLIENT = path.resolve(__dirname, '..', 'src/client')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -60,11 +61,13 @@ module.exports = {
       template: path.resolve(__dirname, '..', 'src/client/index.html'),
       filename: `index.html`,
       chunks: ['main'],
+      favicon: path.resolve(FOLDER_CLIENT, './static/favicon.jpg'),
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', 'src/client/login.html'),
       filename: `login.html`,
       chunks: ['login'],
+      favicon: path.resolve(FOLDER_CLIENT, './static/favicon.jpg'),
     }),
     // Extract our CSS into a files.
     new MiniCssExtractPlugin({

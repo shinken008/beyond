@@ -14,7 +14,7 @@ const stores = { todoStore }
 const App = () => (
   <Provider {...stores}>
     <>
-      <Header />
+      {/* <Header /> */}
       <section className="content">
         <Router>
           <Routes />
